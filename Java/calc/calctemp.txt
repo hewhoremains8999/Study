@@ -1,0 +1,7 @@
+calctempelse if (s.charAt(0) >= '0' && s.charAt(0) <= '9') || s.charAt(0) == '.'){
+		if (!s1.equals(""))
+			s2 =s2+s;
+		else
+			s0=s0+s;
+
+	l.setText(s0+s1+s3);
