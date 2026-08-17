@@ -38,7 +38,7 @@ time_quantum:Integer time slice allocated to each process
 
     #Execute process for the quantum or its reamining time, whichever is smaller
         execution_time = min(remaining_burst[pid],time_quantum)
-        remaining_burst[pid] = execution_time
+        remaining_burst[pid]-= execution_time
         current_time+= execution_time
 
         #Check for new arrivals during execution before re-queuing the current proces
@@ -53,19 +53,19 @@ time_quantum:Integer time slice allocated to each process
             #Process finished
             completed +=1
             completion_time[pid] = current_time
-            turnaround_time[pid]== completion_time[pid] - arrival_times[pid]
-            waiting_time[pid]=turnaround_time[pid]- burst_time[pid]
+            turnaround_time[pid]= completion_time[pid] - arrival_times[pid]
+            waiting_time[pid]=turnaround_time[pid]- burst_times[pid]
 
     #Print summary metrics Table
-    print(f"{'PID':<5} | {'Arrival':<8}| {'Burst':<6}| {'Complete':<9}|{'Turnaround':<11}|{'Waiting'<7}")
+    print(f"{'PID':<5} | {'Arrival':<8}| {'Burst':<6}| {'Complete':<9}|{'Turnaround':<11}|{'Waiting':<7}")
     print("-" * 60)
     for p in processes:
         pid=p['id']
-        print(f"P{pid:<4}:{arrival_times[pid]:<8}|{burst_times[pid]:<6}|completion_time[pid]:<9| {turnaround_time[pid]:<11}| {waiting_time[pid]:<7}")
+        print(f"P{pid:<4}:{arrival_times[pid]:<8}|{burst_times[pid]:<6}|{completion_time[pid]:<9}| {turnaround_time[pid]:<11}| {waiting_time[pid]:<7}")
                         
     print("-" * 60)
     print(f"Average turnaround time:{sum(turnaround_time.values())/n:.2f}")
-    print(f"Average Waiting time:{sum(waiting.values())/n:.2f}")
+    print(f"Average Waiting time:{sum(waiting_time.values())/n:.2f}")
 
 
 example_processes=[
