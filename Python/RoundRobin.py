@@ -61,7 +61,7 @@ time_quantum:Integer time slice allocated to each process
     print("-" * 60)
     for p in processes:
         pid=p['id']
-        print(f"P{pid:<4}:{arrival_times[pid]:<8}|{burst_times[pid]:<6}|{completion_time[pid]:<9}| {turnaround_time[pid]:<11}| {waiting_time[pid]:<7}")
+        print(f"P{pid:<4}|{arrival_times[pid]:<8}|{burst_times[pid]:<6}|{completion_time[pid]:<9}| {turnaround_time[pid]:<11}| {waiting_time[pid]:<7}")
                         
     print("-" * 60)
     print(f"Average turnaround time:{sum(turnaround_time.values())/n:.2f}")
