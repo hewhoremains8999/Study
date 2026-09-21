@@ -1,20 +1,4 @@
-<%-- 
-    Document   : mainjsp
-    Created on : Aug 31, 2026, 11:10:35 PM
-    Author     : Admin
---%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    Cookie firstName=new Cookie("first_name",request.getParameter("firt_name"));
-    Cookie lastName=new Cookie("last_name",request.getParameter("last_name"));
-    
-    firstName.setMaxAge(60*60);
-    lastName.setMaxAge(60*60);
-    
-    response.addCookie(firstName);
-    response.addCookie(lastName);
-%>
 <!DOCTYPE html>
 <html>
     <head>
